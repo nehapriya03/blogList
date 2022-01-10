@@ -7,11 +7,9 @@ const PostList = ({ posts }) => {
   useEffect(() => {
     fetchPosts();
   }, []);
-  console.log({ posts }.posts.posts);
 
   const renderList = () => {
     return posts.posts.map((post) => {
-      console.log(post.userId);
       return (
         <div className="item" key={post.id}>
           <i className="large middle aligned icon user" />
@@ -20,7 +18,7 @@ const PostList = ({ posts }) => {
               <h2>{post.title}</h2>
               <p>{post.body}</p>
             </div>
-            <UserHeader userIds={post.userId} />
+            <UserHeader userId={post.userId} />
           </div>
         </div>
       );
@@ -34,9 +32,9 @@ const PostList = ({ posts }) => {
   );
 };
 
-const mapStateToProps = (allPosts) => {
+const mapStateToProps = (state) => {
   return {
-    posts: allPosts,
+    posts: state,
   };
 };
 
